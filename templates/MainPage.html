@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <meta name="viewport">
+       
+        
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+</head>
+<body>
+    <div class="container" style="height: 60px">
+        <div class = "text-center">
+            <h2>温州医科大学附属眼视光医院信息服务管理系统</h2>
+        </div>
+    </div>
+    
+     <div class="container" style="height: 50px" >
+         <div class ="row" style="height: 30px">
+             <div class = "col-md-3" style="height: 30px">
+                 <div class = "text-center">
+                     <div class="card bg-primary text-white" style="height: 30px">人员
+                        </div></div></div> 
+             <div class = "col-md-3" style="height: 30px">           
+                  <div class = "text-center">
+                     <div class="card bg-primary text-white" style="height: 30px">资源
+                        </div></div></div> 
+             <div class = "col-md-3" style="height: 30px">    
+                 <div class = "text-center">
+                     <div class="card bg-primary text-white" style="height: 30px">过程
+                        </div></div></div>   
+             <div class = "col-md-3" style="height: 30px" >
+                  <div class = "text-center">
+                     <div class="card bg-primary text-white" style="height: 30px">技术
+                        </div></div></div> 
+                 
+         </div>
+    </div>
+    
+    <div class = "container" >
+        <div class ="row"  >
+            <div class = "col-md-3" >
+                 <label style="display: inline-block; text-align: center; width: 100%;">服务规划</label>
+                 <label style="display: inline-block; text-align: center; width: 100%;"> 
+                     {% for sysplan in sysplans %}
+                           
+                         {#  <li><a href = "{% url 'url_network' plan_name %}" >{{ sysplan.ItemName }}</a> </li>  #}
+                         <li><a href= "/plan/{{ sysplan.LinkPage }}" >{{ sysplan.ItemName }}</a> </li>  
+                     {% endfor %}
+                 </label>
+            </div>  
+             <div class = "col-md-6" >
+                <div class = "text-center" style="height: 500px;">大屏幕</div>
+            </div>  
+            <div class = "col-md-3" >     
+                <div class = "text-center" style="height: 500px;">项目管理</div>
+            </div>
+        </div>
+    </div>    
+    
+    <div class = "container" style="height: 210px;" >
+         <div class ="row">
+            <div class = "col-md-3" >
+                 
+                 <label style="display: inline-block; text-align: center; width: 100%;">运营管理</label>
+                 <label style="display: inline-block; text-align: center; width: 100%;"> 
+                     {% for operation in operations %}
+                          <li>{{ operation.ItemName }} </li>
+                     {% endfor %}
+                 </label>
+            </div> 
+            <div class = "col-md-6" >
+                 <div class = "text-center" style="height: 200px;">报警</div>
+            </div> 
+            <div class = "col-md-3" >
+                 
+                 <label style="display: inline-block; text-align: center; width: 100%;">友情链接</label>
+                 <label style="display: inline-block; text-align: center; width: 100%;"> 
+                     {% for link in links %}
+                          <li>{{ link.ItemName }} </li>
+                     {% endfor %}
+                 </label>
+            </div>
+         </div>
+    </div>
+    
+    
+    <footer class = "container" >
+        <div class = "text-center">由信息管理部技术支持 power by The Department of Information Management</div>  
+    </footer>
+      
+    
+</body>
+</html>
